@@ -22,7 +22,7 @@ python-dateutil==2.9.0.post0
 
 matplotlib==3.10.3
 numpy==2.2.6
-pillow==11.2.1
+pillow==10.4.0
 
 requests==2.32.3
 urllib3==2.2.3
