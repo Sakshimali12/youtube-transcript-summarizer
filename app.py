@@ -4,7 +4,6 @@
 
 import streamlit as st
 import google.generativeai as genai
-from youtube_transcript_api import YouTubeTranscriptApi
 import os
 from dotenv import load_dotenv
 import re
@@ -17,6 +16,10 @@ from googleapiclient.errors import HttpError
 from dateutil import parser
 import matplotlib.pyplot as plt
 
+st.set_page_config(
+    page_title="🎥 YouTube Video Sentiment and Summarization",
+    layout="centered"
+)
 # ==========================
 # DOWNLOAD NLTK DATA
 # ==========================
@@ -35,11 +38,11 @@ GOOGLE_API_KEY = os.getenv("GOOGLE_API_KEY")
 YOUTUBE_API_KEY = os.getenv("YOUTUBE_API_KEY")
 
 if not GOOGLE_API_KEY:
-    st.error("GOOGLE_API_KEY not found in .env file")
+    st.error("GOOGLE_API_KEY not found")
     st.stop()
 
 if not YOUTUBE_API_KEY:
-    st.error("YOUTUBE_API_KEY not found in .env file")
+    st.error("YOUTUBE_API_KEY not found")
     st.stop()
 
 # ==========================
@@ -411,10 +414,7 @@ def plot_sentiment_pie_chart(
 # STREAMLIT PAGE
 # ==========================================
 
-st.set_page_config(
-    page_title="🎥 YouTube Video Sentiment and Summarization",
-    layout="centered"
-)
+
 
 st.markdown(
     """
